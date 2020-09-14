@@ -26,4 +26,16 @@ class Vacation extends Model
      * @var string[]
      */
     protected $dates = ['from', 'to'];
+
+    /**
+     * @param $query
+     * @param int $id
+     * @return mixed
+     */
+    public function scopeVacationByEmployeeId($query, int $id)
+    {
+        return $query->select('from', 'to')
+            ->where('employee_id', $id);
+    }
+
 }

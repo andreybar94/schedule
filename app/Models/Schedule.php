@@ -28,7 +28,7 @@ class Schedule extends Model
      * @param int $id
      * @return Builder
      */
-    public function scopeByEmployeeId($query, int $id)
+    public function scopeScheduleByEmployeeId($query, int $id)
     {
         return $query->select('start', 'end')
             ->where('employee_id', $id)
