@@ -17,7 +17,8 @@ class VacationTableSeeder extends Seeder
         $this->createRecord('2020-02-01', '2020-03-01', 2);
     }
 
-    protected function createRecord(string $from, string $to, int $employee_id){
+    protected function createRecord(string $from, string $to, int $employee_id)
+    {
         DB::table('vacations')->insert([
             'from' => $from,
             'to' => $to,

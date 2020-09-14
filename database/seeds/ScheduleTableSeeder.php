@@ -18,7 +18,8 @@ class ScheduleTableSeeder extends Seeder
         $this->createRecord('13:00', '18:00', 2);
     }
 
-    protected function createRecord(string $start,string $end,int $employee_id){
+    protected function createRecord(string $start,string $end,int $employee_id)
+    {
         DB::table('schedules')->insert([
             'start' => $start,
             'end' => $end,
