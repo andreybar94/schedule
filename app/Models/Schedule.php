@@ -22,7 +22,7 @@ class Schedule extends Model
     protected $hidden = ['created_at', 'updated_at'];
 
     /**
-     * Выбирает начало и конец временного периода по id сотрудника
+     * Выбирает время начала и конеца периода работы по id сотрудника
      *
      * @param $query
      * @param int $id

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Vacation extends Model
@@ -28,9 +29,11 @@ class Vacation extends Model
     protected $dates = ['from', 'to'];
 
     /**
+     * Выбирает дату начала и конеца отпуска по id сотрудника
+     *
      * @param $query
      * @param int $id
-     * @return mixed
+     * @return Builder
      */
     public function scopeVacationByEmployeeId($query, int $id)
     {
