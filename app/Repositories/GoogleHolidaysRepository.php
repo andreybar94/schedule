@@ -26,7 +26,6 @@ class GoogleHolidaysRepository implements HolidaysRepository
         $this->http = $httpClient;
     }
 
-
     /**
      * @return array
      * @throws \Carbon\Exceptions\InvalidFormatException
