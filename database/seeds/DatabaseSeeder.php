@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ScheduleTableSeeder::class);
         $this->call(VacationTableSeeder::class);
+        $this->call(EventTableSeeder::class);
     }
 
 }
