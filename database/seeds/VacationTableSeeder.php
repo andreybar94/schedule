@@ -12,9 +12,9 @@ class VacationTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->createRecord('2018-01-11', '2018-01-25', 1);
-        $this->createRecord('2018-02-01', '2018-02-15', 1);
-        $this->createRecord('2018-02-01', '2018-03-01', 2);
+        $this->createRecord('2020-01-11', '2020-01-25', 1);
+        $this->createRecord('2020-02-01', '2020-02-15', 1);
+        $this->createRecord('2020-02-01', '2020-03-01', 2);
     }
 
     protected function createRecord(string $from, string $to, int $employee_id)

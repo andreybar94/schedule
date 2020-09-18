@@ -12,7 +12,7 @@ class EventTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->createRecord('2018-01-10 15:00', '2018-01-11 00:00');
+        $this->createRecord('2020-01-10 15:00', '2020-01-11 00:00');
     }
 
     protected function createRecord(string $start,string $end)

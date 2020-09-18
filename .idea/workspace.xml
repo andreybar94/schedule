@@ -10,7 +10,9 @@
   <component name="ChangeListManager">
     <list default="true" id="134264d9-49d9-4d60-9af9-b8fabd6bff46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/EventTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EventTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/VacationTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/VacationTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,9 +182,9 @@
       <command value="art make:model Models/Event -m" />
       <command value="art migrate" />
       <command value="art make:seeder EventTableSeeder" />
-      <command value="art db:seed" />
       <command value="art make:provider RepositoryServiceProvider" />
       <command value="art config:clear" />
+      <command value="art db:seed" />
     </option>
   </component>
   <component name="RunManager">
@@ -201,7 +203,7 @@
       <updated>1599924359715</updated>
       <workItem from="1599924399035" duration="29589000" />
       <workItem from="1600140257715" duration="11745000" />
-      <workItem from="1600318310789" duration="4865000" />
+      <workItem from="1600318310789" duration="22204000" />
     </task>
     <servers />
   </component>
@@ -255,8 +257,8 @@
               </option>
               <option name="COLUMN_WIDTH">
                 <map>
-                  <entry key="2" value="47" />
-                  <entry key="3" value="36" />
+                  <entry key="2" value="80" />
+                  <entry key="3" value="79" />
                 </map>
               </option>
             </State>
@@ -299,30 +301,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600079146385" />
-    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600342962890">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600429374624">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600342962890" />
-    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600342962889">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600429374624" />
+    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600429374435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600342962889" />
-    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600342962889">
+    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600429374435" />
+    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600429374410">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600342962889" />
-    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600342962890">
+    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600429374410" />
+    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600429374436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600342962890" />
+    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600429374436" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1599929760277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1366.728@0.0.1366.728" timestamp="1599929760277" />
-    <state x="430" y="86" key="NewPhpClassDialog" timestamp="1600140390742">
+    <state x="430" y="86" key="NewPhpClassDialog" timestamp="1600347905698">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="430" y="86" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1600140390742" />
+    <state x="430" y="86" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1600347905698" />
     <state x="518" y="286" key="NewPhpFileDialog" timestamp="1600143526878">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -335,9 +337,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="453" y="223" key="SymfonyComponentCompositeDataDialog/0.0.1366.728@0.0.1366.728" timestamp="1599927218346" />
-    <state x="251" y="212" width="672" height="624" key="run.anything.popup" timestamp="1600342962687">
+    <state x="429" y="171" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1600405786336">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="251" y="212" width="672" height="624" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600342962687" />
+    <state x="429" y="171" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1600405786336" />
+    <state x="251" y="212" width="672" height="624" key="run.anything.popup" timestamp="1600429366087">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="251" y="212" width="672" height="624" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600429366087" />
   </component>
 </project>
