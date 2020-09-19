@@ -15,6 +15,6 @@ class ScheduleController extends Controller
 
     public  function show()
     {
-        $this->scheduleService->getSchedule('2020-01-01', '2020-03-31', 2);
+        return response()->json($this->scheduleService->getSchedule('2020-01-01', '2020-03-31', 2));
     }
 }

@@ -38,6 +38,7 @@ class ScheduleService
         $workingDays = $this->getWorkingDays($from, $to, $employeeId);
         $timeRanges = TimeRange::getByEmployeeId($employeeId)->get()->toArray();
         $timetable = $this->getTimetable($timeRanges, $workingDays);
+        return $this->convertForResponse($timetable);
     }
 
     /**
@@ -124,5 +125,19 @@ class ScheduleService
         }
 
         return $timetable;
+    }
+
+    protected function convertForResponse(array $timetable)
+    {
+        foreach ($timetable as $interval){
+            $item = new \stdClass();
+            $item->day = $interval['start']->format('Y-m-d');
+            $item->timeRanges[] = [
+                'start' => $interval['start']->format('Hi'),
+                'end' => $interval['end']->format('Hi')
+            ];
+            $data['schedule'][] = $item;
+        }
+        return $data;
     }
 }
