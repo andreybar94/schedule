@@ -4,8 +4,7 @@
 namespace App\Services;
 
 
-use App\Models\Event;
-use App\Models\Schedule;
+use App\Models\TimeRange;
 use App\Models\Vacation;
 use App\Repositories\Interfaces\HolidaysRepository;
 use Carbon\Carbon;
@@ -13,6 +12,15 @@ use Carbon\CarbonPeriod;
 
 class ScheduleService
 {
+    /**
+     * Дата и время начала корпоратива
+     */
+    const PARTY_START = '2020-01-10 15:00:00';
+
+    /**
+     * Дата и время конца корпоратива
+     */
+    const PARTY_END = '2020-01-11 00:00:00';
 
     /**
      * Объект репозитория праздников
@@ -21,56 +29,29 @@ class ScheduleService
      */
     protected $holidaysRepository;
 
-    /**
-     * Объект модели графика работы
-     *
-     * @var Schedule
-     */
-    protected $scheduleModel;
-
-    /**
-     * Объект модели отпусков
-     *
-     * @var Vacation
-     */
-    protected $vacationModel;
-
-    /**
-     * Объект модели событий
-     *
-     * @var Event
-     */
-    protected $eventModel;
-
-    public function __construct(HolidaysRepository $holidaysRepository,
-                                Schedule $scheduleModel,
-                                Vacation $vacationModel,
-                                Event $eventModel
-    )
+    public function __construct(HolidaysRepository $holidaysRepository)
     {
         $this->holidaysRepository = $holidaysRepository;
-        $this->scheduleModel = $scheduleModel;
-        $this->vacationModel = $vacationModel;
-        $this->eventModel = $eventModel;
     }
 
-    public function getSchedule(){
-        $this->getWorkingDays(1,'2020-01-01','2020-01-30')->forEach(function (Carbon $date) {
-            echo $date->format('y-m-d')."\n";});
+    public function getSchedule(string $from,string $to,int $employeeId){
+        $workingDays = $this->getWorkingDays($from, $to, $employeeId);
+        $timeRanges = TimeRange::getByEmployeeId($employeeId)->get()->toArray();
+        $timetable = $this->getTimetable($timeRanges, $workingDays);
     }
 
     /**
      * Возвращает рабочие дни сотрудника
      *
-     * @param int $idEmployee
+     * @param int $employeeId
      * @param string $from
      * @param string $to
      * @return CarbonPeriod
      */
-    protected function getWorkingDays(int $idEmployee, string $from, string $to): CarbonPeriod
+    protected function getWorkingDays(string $from, string $to, int $employeeId): CarbonPeriod
     {
         $holidays = $this->holidaysRepository->getHolidays();
-        $vacations = $this->vacationModel->vacationByEmployeeId($idEmployee)->get()->toArray();
+        $vacations = Vacation::getByEmployeeId($employeeId)->get()->toArray();
 
         return CarbonPeriod::create($from, $to)->filter(function ($date) use ($holidays, $vacations){
         return  $date->isWeekday() &&
@@ -107,4 +88,41 @@ class ScheduleService
         return false;
     }
 
+    protected function getTimetable(array $timeRanges, CarbonPeriod $workingDays)
+    {
+        foreach ($workingDays as $day){
+            foreach ($timeRanges as $range){
+                $timetable[] = [
+                    'start' => Carbon::create($day->format('Y-m-d') . ' ' . $range['start']),
+                    'end' => Carbon::create($day->format('Y-m-d') . ' ' . $range['end'])
+                ];
+            }
+        }
+
+        return $this->removePartyFromTimetable($timetable);
+    }
+
+    protected function removePartyFromTimetable(array $timetable)
+    {
+        foreach ($timetable as $key => $interval){
+            $period = CarbonPeriod::create($interval['start'], $interval['end']);
+            if (!$period->overlaps(self::PARTY_START, self::PARTY_END)) continue;
+
+            if ($period->contains(self::PARTY_START) && $period->contains(self::PARTY_END)){
+                $timetable[] = [
+                    'start' => Carbon::create(self::PARTY_END),
+                    'end' => $timetable[$key]['end']
+                ];
+
+                $timetable[$key]['end'] = Carbon::create(self::PARTY_START);
+            }
+            elseif ($period->contains(self::PARTY_START) && !$period->contains(self::PARTY_END)){
+                $timetable[$key]['end'] = Carbon::create(self::PARTY_START);
+            }elseif (!$period->contains(self::PARTY_START) && $period->contains(self::PARTY_END)){
+                $timetable[$key]['start'] = Carbon::create(self::PARTY_END);
+            }
+        }
+
+        return $timetable;
+    }
 }

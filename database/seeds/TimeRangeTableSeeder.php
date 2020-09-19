@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
-class ScheduleTableSeeder extends Seeder
+class TimeRangeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,7 +19,7 @@ class ScheduleTableSeeder extends Seeder
 
     protected function createRecord(string $start,string $end,int $employee_id)
     {
-        DB::table('schedules')->insert([
+        DB::table('time_ranges')->insert([
             'start' => $start,
             'end' => $end,
             'employee_id' => $employee_id

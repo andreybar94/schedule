@@ -11,8 +11,15 @@
     <list default="true" id="134264d9-49d9-4d60-9af9-b8fabd6bff46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/EventTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EventTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/VacationTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/VacationTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TimeRange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Vacation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Vacation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ScheduleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ScheduleService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_13_040631_create_schedules_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_17_045828_create_events_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/EventTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ScheduleTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TimeRangeTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,10 +187,12 @@
       <command value="art make:controller --help" />
       <command value="art make:controller ScheduleController" />
       <command value="art make:model Models/Event -m" />
-      <command value="art migrate" />
       <command value="art make:seeder EventTableSeeder" />
       <command value="art make:provider RepositoryServiceProvider" />
       <command value="art config:clear" />
+      <command value="art make:model Models/TimeRange -m" />
+      <command value="art make:seeder TimeRangeTableSeeder" />
+      <command value="art migrate" />
       <command value="art db:seed" />
     </option>
   </component>
@@ -203,7 +212,7 @@
       <updated>1599924359715</updated>
       <workItem from="1599924399035" duration="29589000" />
       <workItem from="1600140257715" duration="11745000" />
-      <workItem from="1600318310789" duration="22204000" />
+      <workItem from="1600318310789" duration="54504000" />
     </task>
     <servers />
   </component>
@@ -281,6 +290,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="456" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1599930955244" />
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1600433046161">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1600433046161" />
+    <state x="368" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600437045279">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="368" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1600437045279" />
     <state x="451" y="193" key="#com.intellij.tools.ToolEditorDialog" timestamp="1599992947949">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -301,22 +318,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600079146385" />
-    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600429374624">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600510341551">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600429374624" />
-    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600429374435">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600510341551" />
+    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600510341551">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600429374435" />
-    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600429374410">
+    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600510341551" />
+    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600510341551">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600429374410" />
-    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600429374436">
+    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600510341551" />
+    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600510341551">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600429374436" />
+    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600510341551" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1599929760277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -341,9 +358,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="429" y="171" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1600405786336" />
-    <state x="251" y="212" width="672" height="624" key="run.anything.popup" timestamp="1600429366087">
+    <state x="251" y="212" width="672" height="624" key="run.anything.popup" timestamp="1600510341177">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="251" y="212" width="672" height="624" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600429366087" />
+    <state x="251" y="212" width="672" height="624" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600510341177" />
   </component>
 </project>

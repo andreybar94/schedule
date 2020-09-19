@@ -5,8 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class Schedule extends Model
+class TimeRange extends Model
 {
+    /**
+     * Имя таблицы
+     *
+     * @var string
+     */
+    protected $table = 'time_ranges';
+
     /**
      *Доступные массовому заполнению атрибуты
      *
@@ -28,7 +35,7 @@ class Schedule extends Model
      * @param int $id
      * @return Builder
      */
-    public function scopeScheduleByEmployeeId($query, int $id)
+    public function scopeGetByEmployeeId($query, int $id)
     {
         return $query->select('start', 'end')
             ->where('employee_id', $id)

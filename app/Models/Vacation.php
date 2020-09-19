@@ -35,7 +35,7 @@ class Vacation extends Model
      * @param int $id
      * @return Builder
      */
-    public function scopeVacationByEmployeeId($query, int $id)
+    public function scopeGetByEmployeeId($query, int $id)
     {
         return $query->select('from', 'to')
             ->where('employee_id', $id);
