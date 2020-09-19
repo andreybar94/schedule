@@ -5,9 +5,8 @@ namespace App\Repositories;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
-use App\Repositories\Interfaces\HolidaysRepository;
 
-class GoogleHolidaysRepository implements HolidaysRepository
+class GoogleHolidaysRepository
 {
 
     const URL = 'https://www.googleapis.com/calendar/v3/calendars/ru.russian%23holiday%40group.v.calendar.google.com/events?key=';
@@ -27,6 +26,8 @@ class GoogleHolidaysRepository implements HolidaysRepository
     }
 
     /**
+     * Возвращает массив нерабочих дней
+     *
      * @return array
      * @throws \Carbon\Exceptions\InvalidFormatException
      * @throws \GuzzleHttp\Exception\GuzzleException

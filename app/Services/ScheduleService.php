@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Models\TimeRange;
 use App\Models\Vacation;
-use App\Repositories\Interfaces\HolidaysRepository;
+use App\Repositories\GoogleHolidaysRepository;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 
@@ -25,16 +25,30 @@ class ScheduleService
     /**
      * Объект репозитория праздников
      *
-     * @var HolidaysRepository
+     * @var GoogleHolidaysRepository
      */
     protected $holidaysRepository;
 
-    public function __construct(HolidaysRepository $holidaysRepository)
+    /**
+     * ScheduleService constructor.
+     * @param GoogleHolidaysRepository $holidaysRepository
+     */
+    public function __construct(GoogleHolidaysRepository $holidaysRepository)
     {
         $this->holidaysRepository = $holidaysRepository;
     }
 
-    public function getSchedule(string $from,string $to,int $employeeId){
+    /**
+     * Возвращает расписание сотрудника для ответа
+     *
+     * @param string $from
+     * @param string $to
+     * @param int $employeeId
+     * @return array
+     * @throws \Carbon\Exceptions\InvalidFormatException
+     */
+    public function getSchedule(string $from, string $to, int $employeeId): array
+    {
         $workingDays = $this->getWorkingDays($from, $to, $employeeId);
         $timeRanges = TimeRange::getByEmployeeId($employeeId)->get()->toArray();
         $timetable = $this->getTimetable($timeRanges, $workingDays);
@@ -89,8 +103,17 @@ class ScheduleService
         return false;
     }
 
-    protected function getTimetable(array $timeRanges, CarbonPeriod $workingDays)
+    /**
+     * Возвращает рабочий график сотрудника
+     *
+     * @param array $timeRanges
+     * @param CarbonPeriod $workingDays
+     * @return array
+     * @throws \Carbon\Exceptions\InvalidFormatException
+     */
+    protected function getTimetable(array $timeRanges, CarbonPeriod $workingDays): array
     {
+        $timetable = array();
         foreach ($workingDays as $day){
             foreach ($timeRanges as $range){
                 $timetable[] = [
@@ -103,12 +126,21 @@ class ScheduleService
         return $this->removePartyFromTimetable($timetable);
     }
 
-    protected function removePartyFromTimetable(array $timetable)
+    /**
+     * Удаляет время корпоратива из графика сотрудника
+     *
+     * @param array $timetable
+     * @return array
+     * @throws \Carbon\Exceptions\InvalidFormatException
+     */
+    protected function removePartyFromTimetable(array $timetable): array
     {
         foreach ($timetable as $key => $interval){
             $period = CarbonPeriod::create($interval['start'], $interval['end']);
+            //Если время рабочего интервала не пересекается с временем корпоратива, проверяем следующий интервал
             if (!$period->overlaps(self::PARTY_START, self::PARTY_END)) continue;
-
+            /*Если время корпоратива входит в интервал рабочего времени, то добавляем новый интервал,от конца
+            корпоратива до конца старого интервала, а конец старого интервала теперь будет во время начала корпоратива*/
             if ($period->contains(self::PARTY_START) && $period->contains(self::PARTY_END)){
                 $timetable[] = [
                     'start' => Carbon::create(self::PARTY_END),
@@ -127,8 +159,15 @@ class ScheduleService
         return $timetable;
     }
 
-    protected function convertForResponse(array $timetable)
+    /**
+     * Преобразовывает данные для ответа
+     *
+     * @param array $timetable
+     * @return array
+     */
+    protected function convertForResponse(array $timetable): array
     {
+        $data = array();
         foreach ($timetable as $interval){
             $item = new \stdClass();
             $item->day = $interval['start']->format('Y-m-d');

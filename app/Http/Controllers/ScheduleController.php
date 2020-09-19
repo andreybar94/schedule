@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ScheduleService;
+use Illuminate\Http\JsonResponse;
+
+
 class ScheduleController extends Controller
 {
     protected $scheduleService;
@@ -13,8 +16,14 @@ class ScheduleController extends Controller
         $this->scheduleService = $scheduleService;
     }
 
-    public  function show()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Carbon\Exceptions\InvalidFormatException
+     */
+    public  function show(Request $request): JsonResponse
     {
-        return response()->json($this->scheduleService->getSchedule('2020-01-01', '2020-03-31', 2));
+        $data = $this->scheduleService->getSchedule($request->startDate, $request->endDate, $request->userId);
+        return response()->json($data);
     }
 }
