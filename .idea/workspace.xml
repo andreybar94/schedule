@@ -10,10 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="134264d9-49d9-4d60-9af9-b8fabd6bff46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ScheduleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ScheduleService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +203,7 @@
       <updated>1599924359715</updated>
       <workItem from="1599924399035" duration="29589000" />
       <workItem from="1600140257715" duration="11745000" />
-      <workItem from="1600318310789" duration="71500000" />
+      <workItem from="1600318310789" duration="72294000" />
     </task>
     <servers />
   </component>
@@ -313,22 +309,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600079146385" />
-    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600530014872">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600573022447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600530014872" />
-    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600530014851">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600573022447" />
+    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600573022426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600530014851" />
-    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600530014818">
+    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600573022426" />
+    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600573022412">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600530014818" />
-    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600530014852">
+    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600573022412" />
+    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600573022426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600530014852" />
+    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600573022426" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1599929760277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
