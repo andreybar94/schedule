@@ -10,16 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="134264d9-49d9-4d60-9af9-b8fabd6bff46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/TimeRange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TimeRange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Vacation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Vacation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/GoogleHolidaysRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/GoogleHolidaysRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/HolidaysRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/ScheduleService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ScheduleService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +188,7 @@
       <command value="art make:seeder TimeRangeTableSeeder" />
       <command value="art migrate" />
       <command value="art db:seed" />
+      <command value="art make:middleware ForceJsonResponse" />
     </option>
   </component>
   <component name="RunManager">
@@ -212,7 +207,7 @@
       <updated>1599924359715</updated>
       <workItem from="1599924399035" duration="29589000" />
       <workItem from="1600140257715" duration="11745000" />
-      <workItem from="1600318310789" duration="62584000" />
+      <workItem from="1600318310789" duration="71500000" />
     </task>
     <servers />
   </component>
@@ -302,10 +297,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="451" y="193" key="#com.intellij.tools.ToolEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1599992947949" />
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600319371910">
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600572011422">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600319371910" />
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600572011422" />
     <state x="483" y="292" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1599993017768">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -318,22 +313,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600079146385" />
-    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600521317584">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom" timestamp="1600530014872">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600521317584" />
-    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600521317554">
+    <state width="661" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600530014872" />
+    <state width="661" height="174" key="GridCell.Tab.0.center" timestamp="1600530014851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600521317554" />
-    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600521317518">
+    <state width="661" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600530014851" />
+    <state width="661" height="174" key="GridCell.Tab.0.left" timestamp="1600530014818">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600521317518" />
-    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600521317554">
+    <state width="661" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600530014818" />
+    <state width="661" height="174" key="GridCell.Tab.0.right" timestamp="1600530014852">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600521317554" />
+    <state width="661" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600530014852" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1599929760277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -358,9 +353,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="429" y="171" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1600405786336" />
-    <state x="251" y="212" width="672" height="624" key="run.anything.popup" timestamp="1600510341177">
+    <state x="251" y="212" width="672" height="624" key="run.anything.popup" timestamp="1600530007166">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="251" y="212" width="672" height="624" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600510341177" />
+    <state x="251" y="212" width="672" height="624" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1600530007166" />
   </component>
 </project>

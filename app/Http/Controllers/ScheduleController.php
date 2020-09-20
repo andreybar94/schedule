@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Services\ScheduleService;
 use Illuminate\Http\JsonResponse;
 
-
 class ScheduleController extends Controller
 {
     protected $scheduleService;
@@ -23,7 +22,12 @@ class ScheduleController extends Controller
      */
     public  function show(Request $request): JsonResponse
     {
+        if ($request->startDate > $request->endDate){
+            abort(400, 'Start date is later than end date');
+        }
+
         $data = $this->scheduleService->getSchedule($request->startDate, $request->endDate, $request->userId);
-        return response()->json($data);
+
+        return response()->json($data, 200);
     }
 }

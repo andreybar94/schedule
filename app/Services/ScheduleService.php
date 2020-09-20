@@ -51,6 +51,9 @@ class ScheduleService
     {
         $workingDays = $this->getWorkingDays($from, $to, $employeeId);
         $timeRanges = TimeRange::getByEmployeeId($employeeId)->get()->toArray();
+        if(empty($timeRanges)){
+            abort(404, 'Not found time ranges for employee');
+        }
         $timetable = $this->getTimetable($timeRanges, $workingDays);
         return $this->convertForResponse($timetable);
     }
@@ -167,7 +170,7 @@ class ScheduleService
      */
     protected function convertForResponse(array $timetable): array
     {
-        $data = array();
+        $data = array('schedule' => []);
         foreach ($timetable as $interval){
             $item = new \stdClass();
             $item->day = $interval['start']->format('Y-m-d');
